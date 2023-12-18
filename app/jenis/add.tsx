@@ -49,7 +49,7 @@ const AddJenis = () => {
                 placeholder="Name Jenis"
               />
             </div>
-            <div className="form-control">
+            <div className="form-control"> 
               <label className="label font-bold">Kategori</label>
               <input
                 type="text"

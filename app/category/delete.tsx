@@ -1,5 +1,5 @@
 "use client";
-import React, { SyntheticEvent, use } from "react";
+import React, { use } from "react";
 import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
@@ -12,15 +12,12 @@ type Category = {
 const API_URL = "http://127.0.0.1:8000/api";
 const DeleteCategory = (category: Category) => {
   const [modal, setModal] = useState(false);
-  const [nama_kategori, setName] = useState("");
   const [isMutating, setIsMutating] = useState(false);
   const router = useRouter();
   const handleChange = () => setModal(!modal);
   const handleDelete = async (categoryId: Number) => {
     setIsMutating(true);
-    let params = { id: categoryId };
     let endpoint = `${API_URL}/category/${categoryId}`;
-    const data = { nama_kategori: nama_kategori };
     await axios.delete(endpoint);
 
     setIsMutating(false);

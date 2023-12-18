@@ -1,14 +1,14 @@
-"use client";
-import React, { SyntheticEvent, use } from "react";
-import { useState } from "react";
-import axios from "axios";
+"use client"
+import React, { SyntheticEvent, use } from 'react'
+import { useState } from 'react';
+import axios from 'axios';
 import { useRouter } from "next/navigation";
 
 type Category = {
   id: number;
   nama_kategori: string;
 };
-const API_URL = "http://127.0.0.1:8000/api";
+const API_URL = 'http://127.0.0.1:8000/api'
 const EditCategory = (category: Category) => {
   const [modal, setModal] = useState(false);
   const [nama_kategori, setName] = useState(category.nama_kategori);
@@ -39,7 +39,7 @@ const EditCategory = (category: Category) => {
       />
       <div className="modal">
         <div className="modal-box">
-          <h3 className="font-bold text-lg">Edit Category</h3>
+          <h3 className="font-bold text-lg">Edit Category {category.nama_kategori} ?</h3>
           <form onSubmit={handleUpdate}>
             <div className="form-control">
               <label className="label font-bold">Name</label>
@@ -72,4 +72,4 @@ const EditCategory = (category: Category) => {
   );
 };
 
-export default EditCategory;
+export default EditCategory

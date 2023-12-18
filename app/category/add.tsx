@@ -1,27 +1,28 @@
-"use client";
-import React, { SyntheticEvent, use } from "react";
-import { useState } from "react";
-import axios from "axios";
+"use client"
+import React, { SyntheticEvent, use } from 'react'
+import { useState } from 'react';
+import axios from 'axios';
 import { useRouter } from "next/navigation";
 
-const API_URL = "http://127.0.0.1:8000/api";
+
+const API_URL = 'http://127.0.0.1:8000/api'
 const AddCategory = () => {
-  const [modal, setModal] = useState(false);
-  const [nama_kategori, setName] = useState("");
-  const [isMutating, setIsMutating] = useState(false);
-  const router = useRouter();
-  const handleChange = () => setModal(!modal);
+  const [modal, setModal] = useState(false)
+  const [nama_kategori, setName] = useState("")
+  const [isMutating, setIsMutating] = useState(false)
+  const router = useRouter()
+  const handleChange = () => setModal(!modal)
   const handleSubmit = async (e: SyntheticEvent) => {
-    e.preventDefault();
-    setIsMutating(true);
-    let endpoint = `${API_URL}/category`;
-    const data = { nama_kategori: nama_kategori };
+    e.preventDefault()
+    setIsMutating(true)
+    let endpoint = `${API_URL}/category`
+    const data = { nama_kategori: nama_kategori }
     await axios.post(endpoint, data);
-    setName("");
+    setName('')
     setIsMutating(false);
-    router.refresh();
-    setModal(false);
-  };
+    router.refresh()
+    setModal(false)
+  }
   return (
     <div>
       <button className="btn" onClick={handleChange}>
@@ -66,6 +67,6 @@ const AddCategory = () => {
       </div>
     </div>
   );
-};
+}
 
-export default AddCategory;
+export default AddCategory

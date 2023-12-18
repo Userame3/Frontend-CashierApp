@@ -1,6 +1,5 @@
-"use client";
-import React, { SyntheticEvent, use } from "react";
-import { useState } from "react";
+"use client"
+import React, { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
@@ -9,26 +8,39 @@ type Jenis = {
   name: string;
   kategori_id: number;
 };
+
 const API_URL = "http://127.0.0.1:8000/api";
+
 const EditJenis = (jenis: Jenis) => {
   const [modal, setModal] = useState(false);
   const [name, setName] = useState(jenis.name);
   const [kategori_id, setKategori_id] = useState(jenis.kategori_id);
   const [isMutating, setIsMutating] = useState(false);
   const router = useRouter();
+
   const handleChange = () => setModal(!modal);
-  const handleUpdate = async (e: SyntheticEvent) => {
+
+  const handleUpdate = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsMutating(true);
-    let endpoint = `${API_URL}/jenis/${jenis.id}`;
-    const data = { name: name, kategori_id: kategori_id };
-    await axios.patch(endpoint, data);
-    setName("");
-    setKategori_id(kategori_id);
-    setIsMutating(false);
-    router.refresh();
-    setModal(false);
+    const endpoint = `${API_URL}/jenis/${jenis.id}`;
+    const data = {
+      name: name,
+      kategori_id: kategori_id
+    };
+
+    try {
+      await axios.patch(endpoint, data);
+      setIsMutating(false);
+      router.refresh();
+      setModal(false);
+    } catch (error) {
+      // Tambahkan penanganan pesan kesalahan jika diperlukan
+      setIsMutating(false);
+      console.error('Error updating data:', error);
+    }
   };
+
   return (
     <div>
       <button className="btn" onClick={handleChange}>
@@ -59,7 +71,7 @@ const EditJenis = (jenis: Jenis) => {
               <input
                 type="text"
                 value={kategori_id}
-                onChange={(e) => setKategori_id(e.target.value)}
+                onChange={(e) => setKategori_id(Number(e.target.value))}
                 className="input w-full input-bordered"
                 placeholder="Kategori Id"
               />
