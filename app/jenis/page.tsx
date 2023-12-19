@@ -24,18 +24,18 @@ const JenisList = async () => {
             <div className="py-2">
                 <AddJenis />
             </div>
-            <table className="table table-zebra">
+            <table className="table shadow-2xl">
                 <thead>
-                    <tr className="bg-base-200">
-                        <th>No.</th>
-                        <th>Jenis Makanan</th>
-                        <th>Kategori Id</th>
-                        <th>Action</th>
+                    <tr className="text-black uppercase text-center font-bold">
+                        <th className="" >No.</th>
+                        <th className="" >Jenis Makanan</th>
+                        <th className="" >Kategori Id</th>
+                        <th className="" >Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     {jenis.map((Jenis, index) => (
-                        <tr className="bg-base-400" key={Jenis.id}>
+                        <tr className="text-gray-700  text-center font-medium hover:font-bold bg-cyan-300" key={Jenis.id}>
                             <td>{index + 1}</td>
                             <td>{Jenis.name}</td>
                             <td>{Jenis.kategori_id}</td>

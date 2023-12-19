@@ -32,7 +32,7 @@ const AddMeja = () => {
     };
     return (
         <div>
-            <button className="btn" onClick={handleChange}>
+            <button className="btn bg-sky-800 text-white border-none" onClick={handleChange}>
                 Add New
             </button>
             <input
@@ -41,8 +41,8 @@ const AddMeja = () => {
                 onChange={handleChange}
                 className="modal-toggle"
             />
-            <div className="modal">
-                <div className="modal-box">
+            <div className="modal text-cyan-950">
+                <div className="modal-box bg-cyan-200">
                     <h3 className="font-bold text-lg">Add New Menu</h3>
                     <form onSubmit={handleSubmit}>
                         <div className="form-control">
@@ -51,7 +51,7 @@ const AddMeja = () => {
                                 type="text"
                                 value={nomor_meja}
                                 onChange={(e) => setNoMeja(e.target.value)}
-                                className="input w-full input-bordered"
+                                className="input w-full input-bordered text-gray bg-cyan-100"
                                 placeholder="Menu"
                             />
                         </div>
@@ -61,8 +61,8 @@ const AddMeja = () => {
                                 type="text"
                                 value={kapasitas}
                                 onChange={(e) => setKapasitas(e.target.value)}
-                                className="input w-full input-bordered"
-                                placeholder="Harga"
+                                className="input w-full input-bordered text-gray bg-cyan-100"
+                                placeholder="Kapasitas"
                             />
                         </div>
                         <div className="form-control">
@@ -71,16 +71,16 @@ const AddMeja = () => {
                                 type="text"
                                 value={status}
                                 onChange={(e) => setStatus(e.target.value)}
-                                className="input w-full input-bordered"
+                                className="input w-full input-bordered text-gray bg-cyan-100"
                                 placeholder="Status"
                             />
                         </div>
                         <div className="modal-action">
-                            <button type="button" className="btn" onClick={handleChange}>
+                            <button type="button" className="btn border-none" onClick={handleChange}>
                                 Close
                             </button>
                             {!isMutating ? (
-                                <button type="submit" className="btn btn-primary">
+                                <button type="submit" className="btn bg-green-400 text-white border-none">
                                     Submit
                                 </button>
                             ) : (

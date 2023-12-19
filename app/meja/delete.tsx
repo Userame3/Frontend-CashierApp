@@ -36,7 +36,7 @@ const DeleteMeja = (meja: Meja) => {
     };
     return (
         <div>
-            <button className="btn" onClick={handleChange}>
+            <button className="btn bg-red-500 text-white border-none" onClick={handleChange}>
                 Delete
             </button>
             <input
@@ -45,15 +45,15 @@ const DeleteMeja = (meja: Meja) => {
                 onChange={handleChange}
                 className="modal-toggle"
             />
-            <div className="modal">
-                <div className="modal-box">
-                    <h3 className="font-bold text-lg">Delete Meja {meja.nomor_meja}</h3>
+            <div className="modal text-gray">
+                <div className="modal-box bg-cyan-100">
+                    <h3 className="font-bold text-lg">Delete Meja <span className="underline underline-offset-4">{meja.nomor_meja}</span> ?</h3>
                     <div className="modal-action">
-                        <button type="button" className="btn" onClick={handleChange}>
+                        <button type="button" className="btn border-none" onClick={handleChange}>
                             Close
                         </button>
                         {!isMutating ? (
-                            <button type="button" onClick={() => handleDelete(meja.id)} className="btn btn-primary">
+                            <button type="button" onClick={() => handleDelete(meja.id)} className="btn bg-red-800 text-white border-none">
                                 Delete
                             </button>
                         ) : (

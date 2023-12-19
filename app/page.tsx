@@ -2,8 +2,8 @@ import React from 'react'
 
 const HomePage = () => {
   return (
-    <div>
-      <h1>Ini halaman HomePage</h1>
+    <div className='py-10 px-10'>
+      <h1 className='font-bold text-black'>Halaman Home</h1>
     </div>
   );
 }

@@ -19,13 +19,13 @@ const getCategory = async () => {
 const CategoryList = async () => {
   const category: Category[] = await getCategory()
   return (
-    <div className="py-10 px-10 rounded-xl ">
+    <div className="py-10 px-10">
       <div className="py-2">
         <AddCategory />
       </div>
-      <table className="table bg-amber-50 rounded-xl">
+      <table className="table shadow-2xl">
         <thead>
-          <tr className="bg-amber-400 rounded-xl">
+          <tr className="text-black uppercase text-center font-bold">
             <th>No.</th>
             <th>Nama Kategori</th>
             <th>Action</th>
@@ -33,7 +33,7 @@ const CategoryList = async () => {
         </thead>
         <tbody>
           {category.map((category, index) => (
-            <tr key={category.id} className="">
+            <tr key={category.id} className="text-gray-700  text-center font-medium hover:font-bold bg-cyan-300">
               <td>{index + 1}</td>
               <td>{category.nama_kategori}</td>
               <td className="flex">

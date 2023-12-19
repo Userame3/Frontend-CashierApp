@@ -19,22 +19,22 @@ const DeleteJenis = (jenis: Jenis) => {
   const handleDelete = async (jenisId: Number) => {
     setIsMutating(true)
     try {
-        let endpoint = `${API_URL}/jenis/${jenisId}`
-        await axios.delete(endpoint); // Mengubah dari axios.post menjadi axios.delete
+      let endpoint = `${API_URL}/jenis/${jenisId}`
+      await axios.delete(endpoint); // Mengubah dari axios.post menjadi axios.delete
 
-        setIsMutating(false);
-        router.refresh() // Mengubah dari router.refresh menjadi router.reload
-        setModal(false)
+      setIsMutating(false);
+      router.refresh() // Mengubah dari router.refresh menjadi router.reload
+      setModal(false)
     } catch (error) {
-        // Tangani kesalahan yang terjadi saat penghapusan
-        console.log("Error deleting pelanggan:", error);
-        setIsMutating(false);
-        // Tambahkan logika untuk menampilkan pesan kesalahan kepada pengguna jika diperlukan
+      // Tangani kesalahan yang terjadi saat penghapusan
+      console.log("Error deleting pelanggan:", error);
+      setIsMutating(false);
+      // Tambahkan logika untuk menampilkan pesan kesalahan kepada pengguna jika diperlukan
     }
-}
+  }
   return (
     <div>
-      <button className="btn" onClick={handleChange}>
+      <button className="btn bg-red-500 text-white border-none" onClick={handleChange}>
         Delete
       </button>
       <input
@@ -43,20 +43,20 @@ const DeleteJenis = (jenis: Jenis) => {
         onChange={handleChange}
         className="modal-toggle"
       />
-      <div className="modal">
-        <div className="modal-box">
+      <div className="modal text-gray">
+        <div className="modal-box bg-cyan-100">
           <h3 className="font-bold text-lg">
-            Are sure to delete {jenis.name} ?
+            Are sure to delete <span className="underline underline-offset-4">{jenis.name}</span> ?
           </h3>
           <div className="modal-action">
-            <button type="button" className="btn" onClick={handleChange}>
+            <button type="button" className="btn border-none" onClick={handleChange}>
               Close
             </button>
             {!isMutating ? (
               <button
                 type="button"
                 onClick={() => handleDelete(jenis.id)}
-                className="btn btn-primary"
+                className="btn bg-red-800 text-white border-none"
               >
                 Delete
               </button>

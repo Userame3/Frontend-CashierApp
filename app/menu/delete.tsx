@@ -38,7 +38,7 @@ const DeleteMenu = (menu: Menu) => {
 
     return (
         <div>
-            <button className="btn" onClick={handleChange}>
+            <button className="" onClick={handleChange}>
                 Delete
             </button>
             <input

@@ -1,6 +1,7 @@
 export const metadata = {
     title: "Menu",
 };
+import { Menu } from "@material-tailwind/react";
 import axios from "axios";
 import Link from "next/link";
 import AddMenu from "./add";
@@ -26,38 +27,24 @@ const MenuList = async () => {
             <div className="py-2">
                 <AddMenu />
             </div>
-            <table className="table table-zebra">
-                <thead>
-                    <tr className="bg-base-200">
-                        <th>No.</th>
-                        <th>Nama Menu</th>
-                        <th>Harga</th>
-                        <th>Deskripsi</th>
-                        <th>Kategori Id</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {menu.map((Menu, index) => (
-                        <tr className="bg-base-400" key={Menu.id}>
-                            <td>{index + 1}</td>
-                            <td>{Menu.nama_menu}</td>
-                            <td>{Menu.harga}</td>
-                            <td>{Menu.deskripsi}</td>
-                            <td>{Menu.jenis_id}</td>
-                            <td className="flex">
-                                <div className="mr-1">
-                                    <EditMenu {...Menu} />
-                                </div>
-
-                                <DeleteMenu {...Menu} />
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+            <div className="p-5 flex bg-transparent	content-start">
+                {menu.map((Menu) => (
+                    <div className="card w-60 h-fit mr-4 shadow-xl">
+                        <div className="card-body bg-white rounded-md">
+                            <h2 className="card-title">
+                                {Menu.nama_menu}
+                                <div className="badge badge-secondary">NEW</div>
+                            </h2>
+                            <p className="text-clip">{Menu.deskripsi}</p>
+                            <div className="card-actions justify-end">
+                                <div className="badge badge-outline"><DeleteMenu {...Menu} /></div>
+                                <div className="badge badge-outline"><EditMenu {...Menu} /></div>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };
-
 export default MenuList;

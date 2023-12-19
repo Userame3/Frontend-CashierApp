@@ -25,9 +25,9 @@ const MejaList = async () => {
             <div className="py-2">
                 <AddMeja />
             </div>
-            <table className="table table-zebra">
+            <table className="table shadow-2xl">
                 <thead>
-                    <tr className="bg-base-200">
+                    <tr className="text-black uppercase text-center font-bold">
                         <th>No.</th>
                         <th>Meja Nomor</th>
                         <th>Kapasitas</th>
@@ -37,7 +37,7 @@ const MejaList = async () => {
                 </thead>
                 <tbody>
                     {meja.map((Meja, index) => (
-                        <tr className="bg-base-400" key={Meja.id}>
+                        <tr className="text-gray-700 text-center font-medium hover:font-bold bg-cyan-300" key={Meja.id}>
                             <td>{index + 1}</td>
                             <td>{Meja.nomor_meja}</td>
                             <td>{Meja.kapasitas}</td>

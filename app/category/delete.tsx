@@ -26,7 +26,7 @@ const DeleteCategory = (category: Category) => {
   };
   return (
     <div>
-      <button className="btn" onClick={handleChange}>
+      <button className="btn bg-red-500 text-white border-none" onClick={handleChange}>
         Delete
       </button>
       <input
@@ -35,20 +35,20 @@ const DeleteCategory = (category: Category) => {
         onChange={handleChange}
         className="modal-toggle"
       />
-      <div className="modal">
-        <div className="modal-box">
+      <div className="modal text-gray">
+        <div className="modal-box bg-cyan-100">
           <h3 className="font-bold text-lg">
-            Are sure to delete {category.nama_kategori} ?
+            Are sure to delete <span className="underline underline-offset-4">{category.nama_kategori}</span> ?
           </h3>
           <div className="modal-action">
-            <button type="button" className="btn" onClick={handleChange}>
+            <button type="button" className="btn border-none" onClick={handleChange}>
               Close
             </button>
             {!isMutating ? (
               <button
                 type="button"
                 onClick={() => handleDelete(category.id)}
-                className="btn btn-primary"
+                className="btn bg-red-800 text-white border-none"
               >
                 Delete
               </button>

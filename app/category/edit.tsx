@@ -28,7 +28,7 @@ const EditCategory = (category: Category) => {
   };
   return (
     <div>
-      <button className="btn" onClick={handleChange}>
+      <button className="btn bg-blue-500 text-white border-none" onClick={handleChange}>
         Edit
       </button>
       <input
@@ -37,8 +37,8 @@ const EditCategory = (category: Category) => {
         onChange={handleChange}
         className="modal-toggle"
       />
-      <div className="modal">
-        <div className="modal-box">
+      <div className="modal text-gray">
+        <div className="modal-box bg-cyan-200">
           <h3 className="font-bold text-lg">Edit Category {category.nama_kategori} ?</h3>
           <form onSubmit={handleUpdate}>
             <div className="form-control">
@@ -47,16 +47,16 @@ const EditCategory = (category: Category) => {
                 type="text"
                 value={nama_kategori}
                 onChange={(e) => setName(e.target.value)}
-                className="input w-full input-bordered"
+                className="input w-full input-bordered text-gray bg-cyan-100"
                 placeholder="Name Category"
               />
             </div>
             <div className="modal-action">
-              <button type="button" className="btn" onClick={handleChange}>
+              <button type="button" className="btn border-none" onClick={handleChange}>
                 Close
               </button>
               {!isMutating ? (
-                <button type="submit" className="btn btn-primary">
+                <button type="submit" className="btn bg-green-400 text-white border-none">
                   Submit
                 </button>
               ) : (

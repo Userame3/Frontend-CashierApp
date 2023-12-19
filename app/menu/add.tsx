@@ -35,8 +35,8 @@ const AddMenu = () => {
     };
     return (
         <div>
-            <button className="btn" onClick={handleChange}>
-                Add New
+            <button className="btn bg-sky-800 text-white border-none" onClick={handleChange}>
+                Add New Menu
             </button>
             <input
                 type="checkbox"

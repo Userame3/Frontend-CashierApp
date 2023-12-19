@@ -43,7 +43,7 @@ const EditJenis = (jenis: Jenis) => {
 
   return (
     <div>
-      <button className="btn" onClick={handleChange}>
+      <button className="btn bg-blue-500 text-white border-none" onClick={handleChange}>
         Edit
       </button>
       <input
@@ -52,9 +52,9 @@ const EditJenis = (jenis: Jenis) => {
         onChange={handleChange}
         className="modal-toggle"
       />
-      <div className="modal">
-        <div className="modal-box">
-          <h3 className="font-bold text-lg">Edit Jenis</h3>
+      <div className="modal text-gray">
+        <div className="modal-box bg-cyan-200">
+          <h3 className="font-bold text-lg">Edit Jenis {jenis.name}</h3>
           <form onSubmit={handleUpdate}>
             <div className="form-control">
               <label className="label font-bold">Name</label>
@@ -62,7 +62,7 @@ const EditJenis = (jenis: Jenis) => {
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="input w-full input-bordered"
+                className="input w-full input-bordered text-gray bg-cyan-100"
                 placeholder="Name Jenis"
               />
             </div>
@@ -72,16 +72,16 @@ const EditJenis = (jenis: Jenis) => {
                 type="text"
                 value={kategori_id}
                 onChange={(e) => setKategori_id(Number(e.target.value))}
-                className="input w-full input-bordered"
+                className="input w-full input-bordered text-gray bg-cyan-100"
                 placeholder="Kategori Id"
               />
             </div>
             <div className="modal-action">
-              <button type="button" className="btn" onClick={handleChange}>
+              <button type="button" className="btn border-none" onClick={handleChange}>
                 Close
               </button>
               {!isMutating ? (
-                <button type="submit" className="btn btn-primary">
+                <button type="submit" className="btn bg-green-400 text-white border-none">
                   Submit
                 </button>
               ) : (

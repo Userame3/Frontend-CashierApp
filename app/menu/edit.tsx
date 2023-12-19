@@ -47,7 +47,7 @@ const EditMenu = (menu: Meja) => {
 
     return (
         <div>
-            <button className="btn" onClick={handleChange}>
+            <button className="" onClick={handleChange}>
                 Edit
             </button>
             <input
